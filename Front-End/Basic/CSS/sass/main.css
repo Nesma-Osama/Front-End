@@ -1,0 +1,266 @@
+* {
+  color: darkblue;
+}
+
+.home_header {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  background-color: red;
+}
+
+@media (max-width:575) {
+  body {
+    background-color: navy;
+  }
+}
+.parent {
+  font-size: 30px;
+}
+.parent .child {
+  font-size: 25px;
+}
+.parent .child .grand_child {
+  font-size: 20px;
+}
+
+.parnet > .child {
+  font-size: 25px;
+}
+
+.parent > .child {
+  font-size: 25px;
+}
+.parent .test {
+  font-size: 20px;
+}
+.parent + .paragraph {
+  font-size: 15px;
+}
+
+.parent > .direct-child-one {
+  font-size: 25px;
+}
+.parent > .direct-child-two {
+  font-size: 25px;
+}
+
+.box.red {
+  color: red;
+}
+.box:hover {
+  font-size: 30px;
+}
+.box:hover .title {
+  color: green;
+}
+:not(.box) {
+  font: blue;
+}
+
+.box-2 {
+  font-style: italic;
+  font-size: 30px;
+  font-weight: bold;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.main-class, .nav, .adv {
+  background-color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+}
+
+.adv {
+  font-size: 30px;
+}
+
+.nav {
+  font-size: 25;
+}
+
+.adv-2 {
+  background-color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+}
+
+.page {
+  background-color: white;
+  color: black;
+}
+
+.page .box {
+  border-radius: 6px;
+}
+
+.ad-elzero {
+  font-size: 40px;
+  /*here will show*/
+  left: 0;
+}
+
+/*This
+ comment will show in css file but not in compressed mode
+ */
+/* ! This comment will show in css file and in compressed mode */
+.mixin {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.class-1 {
+  font-size: 11px;
+}
+
+.class-2 {
+  font-size: 12px;
+}
+
+.class-3 {
+  font-size: 13px;
+}
+
+.class-4 {
+  font-size: 14px;
+}
+
+.class-5 {
+  font-size: 15px;
+}
+
+.class-6 {
+  font-size: 16px;
+}
+
+.class-7 {
+  font-size: 17px;
+}
+
+.class-8 {
+  font-size: 18px;
+}
+
+.class-9 {
+  font-size: 19px;
+}
+
+.class-10 {
+  font-size: 20px;
+}
+
+.red-theme .product {
+  background-color: white;
+  border: 2px solid red;
+}
+
+.green-theme .product {
+  background-color: white;
+  border: 2px solid green;
+}
+
+.orange-theme .product {
+  background-color: white;
+  border: 2px solid orange;
+}
+
+.facebook {
+  padding: 1px;
+}
+
+.youtube {
+  padding: 1.5px;
+}
+
+.github {
+  padding: 2px;
+}
+
+.width-1 {
+  width: 100px;
+  height: 50px;
+}
+
+.width-2 {
+  width: 200px;
+  height: 100px;
+}
+
+.width-3 {
+  width: 300px;
+  height: 150px;
+}
+
+.width-4 {
+  width: 400px;
+  height: 200px;
+}
+
+.width-5 {
+  width: 500px;
+  height: 250px;
+}
+
+.width-6 {
+  width: 600px;
+  height: 300px;
+}
+
+.width-7 {
+  width: 700px;
+  height: 350px;
+}
+
+.width-8 {
+  width: 800px;
+  height: 400px;
+}
+
+.width-9 {
+  width: 900px;
+  height: 450px;
+}
+
+.width-10 {
+  width: 1000px;
+  height: 500px;
+}
+
+.produnct {
+  width: 100px;
+  height: 50px;
+  top: 600px;
+}
+
+.element {
+  color: red;
+  background-color: blue;
+}
+
+@media (max-width: 767px) {
+  .media {
+    font-size: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 960px) {
+  .media {
+    font-size: 30px;
+  }
+}
+@media (min-width: 961) and (max-width: 1199) {
+  .media {
+    font-size: 40px;
+  }
+}
+@media (min-width: 1200) {
+  .media {
+    font-size: 50px;
+  }
+}/*# sourceMappingURL=main.css.map */

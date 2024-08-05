@@ -1,0 +1,156 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+}
+
+body {
+    background-image: linear-gradient(#111, #222);
+    /*mix two color*/
+    height: 100%;
+    min-height: 100vh;
+    /* Ensure body takes at least the full height of the viewport */
+    /*height of the whole screen*/
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+body::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* Position relative to the body */
+
+    background-color: red;
+    z-index: -1;
+    clip-path: circle(40% at right 57%);
+    /*The circle has a radius of 40% of the element's smaller dimension (width or height), and it is centered at the coordinates 70% from the top of the element and aligned to the right edge of the element*/
+}
+
+.container {
+    margin: 40px 0px;
+    width: 80%;
+    height: 500px;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    padding: 20px 0px;
+}
+
+.logo {
+    color: white;
+    text-decoration-line: none;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.nav_items {
+    display: inline-block;
+    margin: 0px 6px;
+}
+
+.nav_links {
+    text-decoration-line: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+
+}
+
+.nav_links:hover {
+    color: #8b0000;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.text {
+    width: 40%;
+    color: white;
+}
+
+.text h2 {
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.text p {
+    font-size: 18px;
+    line-height: 25px;
+    margin: 10px 0px;
+}
+
+.image {
+    width: 40%;
+}
+
+.image img {
+    width: 400px;
+}
+
+@media (min-width:830px) and (max-width:1000px) {
+    .image img {
+        width: 300px;
+    }
+}
+
+@media (max-width:830px) {
+
+    .container {
+        height: 600px;
+    }
+
+    nav,
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .text,
+    .image {
+        width: 80%;
+        text-align: center;
+    }
+
+    body::after {
+        display: none;
+    }
+
+    .text h2 {
+        font-size: 30px;
+    }
+
+    .text p {
+        font-size: 14px;
+    }
+
+    .image img {
+        width: 200px;
+    }
+}

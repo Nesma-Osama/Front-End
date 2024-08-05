@@ -1,0 +1,7 @@
+//import layout
+@use './layout/layout' as *;
+//import variables 
+@use "./variables/variable" as *;
+//import home page
+@use "./Pages/Home" as * ;
+

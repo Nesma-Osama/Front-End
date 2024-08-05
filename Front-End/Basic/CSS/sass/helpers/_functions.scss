@@ -1,0 +1,15 @@
+//////////////////////////////////////////////
+/// Functions
+@function half($size){
+    @return $size/2;
+}
+///////////////////////////////////////////////////////
+/// If I dont know how many parameter
+/// key word argument
+@function calculate($sizes...){
+    $total:0;
+    @each $size in $sizes{
+        $total:$total+$size;
+    }
+    @return $total;
+}

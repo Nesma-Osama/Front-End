@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msG11.img"/>
+    <link rel="stylesheet" href=""/>
+    <title>Web site</title>
+    <!---script here and style-->
+</head>
+
+<body>
+    <div id="firstsection">
+    <font size="7" color="#fa1256" face="fancy"><b>Nesma</b> </font><!--font attribute-->
+    <center><i>Nesma Osama</i></center><!---put text in the center-->
+    <p align="right">Abu-Elmaty</p><!---the same-->
+    <p>1 &lt 2 &nbsp 3 &gt 2</p><!---non break space , greater than , less than-->
+    <pre>
+        hello my sweetie     
+        my name is nesma
+     </pre>
+     <!-----------------------------lists------------------------------------------------->
+ <hr/>
+    </div>
+     <ul type="circle"><!---unordered list-->
+        <li>car</li>
+    </ul>
+    <ol type="1" start="3"><!---ordered list-->
+        <li>egg</li>
+        <li>butter</li>
+    </ol>
+    <dl><!--difinition list-->
+        <dt>car</dt><!--definition title-->
+        <dd>car has wheels</dd><!--definition definition-->
+    </dl>
+</div>
+    <!-----------------------------------------links----------------------------------------->
+    <hr/>
+    <a href="#firstsection">FirstSection</a>
+    <br>
+    <a href="mailto:nesma.osama.ahmed@gmail.com?subject=compain&body=hello">Contact us</a>
+    <br>
+    <a href="tel:01067193062">Phone number</a>
+    <br>
+    <!--------------------------------images------------------------->
+    <hr/>
+    <h3>Image</h3>
+    <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msG11.img" alt="nature" align="center" height="100px"/><!--if i give hime width or height he make the another attribute-->
+    <br/>
+    <br/>
+    <h3>image link</h3>
+    <a href="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msG11.img"> <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msG11.img" width="100px" height="100px"/></a>
+    <br/>
+    <!------------------------------------map----------------------------------------->
+    <hr/>
+   <h3>Image map</h3>
+    <map name="mymap">
+        <area shape="circle" coords="35,35,35" href="google.com"/><!---coords center coords and radius-->
+        <area shape="rect" coords="100,100,200,200" href="google.com"/><!---coords of rectangle sharp -->
+
+    </map>
+        <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msG11.img" width="200px" height="200px" usemap="#mymap"><!---use map to engage image with map-->
+        <br/>
+    <!---------------------------------iframe------------------------------------------->
+    <hr/>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13811.862194114567!2d31.18296235799789!3d30.066521994666008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458413be80d13b1%3A0x48541f7abbe23251!2z2KjZitiq2LLYpyDZiNmB2LfYp9im2LHYpyDYp9mE2YXZh9mG2K_Ys9mK2YY!5e0!3m2!1sen!2seg!4v1719600385406!5m2!1sen!2seg" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"  ></iframe>
+    <!--------------------------------------Table------------------------------------->
+    <hr/>
+    <table border="10px" width="300px" height="100px">
+        <caption>Table </caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+
+            </tr>
+            <tbody>
+                <tr>
+                <td>1</td>
+                <td>Nesma</td>
+                <td>20</td>
+            </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Foot</td>
+                    <td>Foot</td>
+                    <td>Foot</td>
+                </tr>
+            </tfoot>
+        </thead>
+    </table>
+    <table border="10px" cellspacing="10px" cellpadding="40px" >
+        <thead>
+            <tr>
+                <th colspan="2">Name</th>
+                <th  width="50%" rowspan="2" >Address</th>
+            </tr>
+            <tr>
+                <td width="25%">first</td>
+                <td>second</td>
+            </tr>
+        </thead>
+        <tbody>
+         
+            <tr>
+            <td colspan="3" align="center" >d</td>
+        </tr>
+        </tbody>
+    </table>
+    <!-------------------------form-------------------------------------------->
+    <form > 
+    <input type="text" name="username"/>
+    <br/>
+
+    <input type="password" name="password"/>
+    <br/>
+
+    <input type="button" value="click here"/>
+    <br/>
+
+    <input type="submit"/>
+    <br/>
+
+    <input type="reset"/>
+    <br/>
+    <input type="image" src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1msG11.img" width="100px" height="100px"/><!--acts as submit button--->
+    <br/>
+<input type="checkbox" name="check_box_tea" value="tea"/> tea   
+<input type="radio" name="femalormeal" value="female"/>female
+<input type="radio" name="femalormeal" value="male"/>male 
+<input type="file"/>
+<select multiple size="2"><!--size is the shown row multiple for allow multichoose-->
+    <option>
+            Nesma
+    </option>
+    <option>
+        osama
+</option>
+<option>
+    ahmed
+</option>
+<option>
+    nacy
+</option>
+</select>
+</form>
+<!-- to send information by form must but name attribute and for checkbox and radio must but also valu attribute -->
+
+</body>
+
+</html>

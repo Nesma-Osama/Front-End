@@ -1,0 +1,784 @@
+/*Selectors*/
+/*inline -> id->class->element-> universal from most important to less important*/
+*
+/*
+Max-Width: Applies styles if the viewport width is less than or equal to the specified value.
+@media (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+Min-Width: Applies styles if the viewport width is greater than or equal to the specified value.
+
+@media (min-width: 601px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+
+*/
+/*all tags */
+    {
+    color: green;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    /*em respective to the parent font size or I am
+    rem the html font size
+    */
+}
+
+.Header {
+    color: navy;
+}
+
+#first_section p
+
+/* any desending in this container because there is a space*/
+    {
+    color: red;
+}
+
+#first_section>p
+
+/* > must be direct child*/
+    {
+    color: black;
+}
+
+#first_section+p
+
+/*+ means p must be direct after first_section*/
+    {
+    color: brown;
+}
+
+#first_section~p
+
+/*~ means any p after div even if there are anothr elements between it but p must be siblings for first_section*/
+    {
+    color: blueviolet;
+}
+
+[width]
+
+/* select by attribute*/
+    {
+    color: gold;
+}
+
+[width ^="2"]
+
+/*^= means this value of this  attribute starts with 2*/
+    {
+    color: cadetblue;
+}
+
+[width $="1px"]
+
+/*$= means this value of this  attribute ends with 1px*/
+    {
+    color: rgb(5, 53, 54);
+}
+
+[width *="10"]
+
+/**= means this value of this  attribute contains 0*/
+    {
+    color: rgb(86, 87, 87);
+}
+
+[abc~="cc"]
+
+/*~= must contain cc as a word*/
+    {
+    color: bisque;
+}
+
+[abc|="ccc"]
+
+/* mean this is the only word or more than one word but start with this word and - after it*/
+    {
+    color: coral;
+}
+
+span[abc|="ccc"]
+
+/* element[] attribut in this element*/
+    {
+    color: rgb(41, 29, 25);
+}
+
+.pesudo_p::after {
+    content: " write after it";
+    color: red;
+}
+
+.pesudo_p::before {
+    content: "write before it ";
+    color: red;
+}
+
+.pesudo_p::first-letter {
+    color: blue;
+}
+
+.pesudo_p::selection
+
+/*when select it*/
+    {
+    color: navy;
+}
+
+.pesudo_p:hover {
+    color: rgb(214, 201, 201);
+}
+
+/*box***************************************************************/
+.border_p {
+    border-style: solid;
+    /* two display border must write style and width of the border*/
+    border-width: 2px;
+    /**/
+    border-color: black;
+    border: 2px solid black;
+    /*width style color*/
+    padding: 20px;
+    margin: auto;
+    /*auto make left = right*/
+    width: 150px;
+    height: 50px;
+    /*    height: 100%; not word the best for height not give him %*/
+    box-sizing: content-box;
+    /*the width and the height + also the border and the padding */
+    box-sizing: border-box;
+    /*the total width and the height is the value I give to it*/
+    display: inline-block;
+    /*can set width and height but become not blocking element*/
+    /*in inline-block for horozontal it sum margin but for vertical it take the biggest one*/
+    border-radius: 50px/30px;
+    /*horozontal radis=50 vertical=30*/
+}
+
+.border_p_hidden {
+    visibility: hidden;
+    /*hidden but as it appear */
+    display: none;
+    /*remove it from the appearance and can put another elemenet in it */
+
+}
+
+.Border_Image {
+    /* border-image-source: url("../Images/Border-PNG-HD-Image.png");
+    border-image-slice: 200;/* how cut image*/
+    /* border-image-width: 50px;
+    border-image-repeat: round;/*image cut to 9 pieces corner and 4 bordre and the middel repeat for border */
+    /* border-image-outset: 2px;out from border by how much */
+    /*short hand
+    border-image=url("") slice /width / outset/ repeat
+    */
+    border-image: linear-gradient(red, blue) 10 /30px;
+    /*colors*/
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+}
+
+.button {
+    margin: 60px;
+    border: 2px solid rgb(30, 24, 24);
+    padding: 20px;
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.button:hover {
+    box-shadow: 5px 5px 20px 2px gray;
+    /* xvalue y value blur spread value color
+    xvalue how much pixel from the box in x direction as y value
+    inset from insider shadow not outside */
+}
+
+/***************************position******************************************/
+/*default value is static 
+1-fixed it is the position deband on viewport the screen Which is appeared for me if I give it top value I cannot give it bottom as the same for right and left*/
+.position_fixed {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(109, 74, 28);
+    position: fixed;
+    bottom: 100px;
+    border: 10px solid black;
+}
+
+/*relative from the original position*/
+.position_relative {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border: 10px solid black;
+    position: relative;
+    top: 50px;
+    left: 40px;
+}
+
+/*sticky first it normal but when this element is far from the for example top by a specific number it will be fixed*/
+.position_sticky {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    border: 10px solid black;
+    position: sticky;
+    top: 10px;
+}
+
+/* parent and child if  I want child be in soecific position from its parent make parent position is any thing execpt static and child be absolute
+if chils is sticky it finished in the last of its parent*/
+.position_parent_child {
+    width: 200px;
+    height: 400px;
+    margin-top: 30px;
+    background-color: red;
+    border: 10px solid black;
+    position: relative;
+}
+
+.child {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border: 10px solid black;
+    position: absolute;
+    left: 10px;
+    bottom: 20px;
+
+}
+
+/*zindex and top left bottom dosent work unless position is ant thing execpt static*
+first if i have a child for example zindex=100 but its parent has z index 2 and there are another box not a child to this parent
+has zindex 3 although 100>3 must be above it but because its parent is 2<3 it will be bellow it
+/
+/**************************display*****************************************/
+/*list item as list item*/
+.list_item {
+    margin: 30px;
+    border: 3px solid red;
+    padding: 10px;
+}
+
+.item {
+    display: list-item;
+    border: 1px solid yellow;
+    list-style-type: square;
+    list-style-position: inside;
+    padding: 10px;
+    margin: 10px;
+}
+
+/*table*/
+.table {
+    display: table;
+    width: 400px;
+    border: 2px groove black;
+}
+
+.captain {
+    display: table-caption;
+}
+
+.header {
+    display: table-header-group;
+}
+
+.body {
+    display: table-row-group;
+}
+
+.footer {
+    display: table-footer-group;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    border: 1px solid red;
+    padding: 20px;
+}
+
+/****************flex**********************/
+/**flex 
+first make it flexiable even if you give it width when you minimize it it is flexible to change not fixed
+for container
+1-flex-wrap 
+2-justify-content in the row direction for example diretion wrow it justify it in the row direction 
+3-align-items in the cross direction 
+4-order change the order of items 
+5-align-self every item can change its position
+6-
+flex-basis if direction row mean width if column mean height
+7-flex-shrink when compress page degault=1
+8-flex-grow when stretch page  default=0 not grow
+9- flex :grow shrink basis*/
+.container_flex {
+    margin-top: 40px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-flow: row nowrap;
+    /*short hand of flex-direction and flex-wrap*/
+    justify-content: center;
+    align-items: flex-end;
+    align-content: space-between;
+    /*only in the situation of wrapping*/
+}
+
+.red_flex {
+    background-color: red;
+    height: 100px;
+    width: 400px;
+    flex: 0 3 auto;
+    /*auto mean take the value from normal*/
+}
+
+.blue_flex {
+    background-color: blue;
+    height: 100px;
+    width: 400px;
+    flex: 1 2 auto;
+    /*auto mean take the value from normal*/
+
+}
+
+/****************************Grid****************************************/
+/*gride-templetes-columns : auto mean take the remaining space
+                          : 1 fr 2 fr means split it to two columns by this percentage
+                          : min-content the minimum space 
+                          : max-content the maximumn content
+                          : minmax (100px, 500px) maxcontient 500 min is 100 px
+                          : repeat( 4, 25%) means the 4 columns will be 25%
+                          : repeat(auto-fit,100px) number of columns is generic if there is item if not the number of fit items only 
+                          : fit-cintent(200px) means it fit the content untill the content be more the 200px it split the content to be 200px 
+Note:: gride-template column I must give him the number of columns and if not he will 1 column then he create row automatically
+but if gride-flow:column columns will be automaticaly 
+
+*/
+.grid_container {
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 100px;
+    grid-auto-rows: 200px;
+    /*height*/
+    /* because flow is row if he create the new row automaticaly height of this row will be 400px*/
+
+    /*
+    grid-auto-flow: column;
+    grid-auto-columns: 400px; 
+    this mean column automatically
+    */
+
+    /* 
+    row-gap: 100px;
+    column-gap: 30px; 
+    */
+    gap: 10px 40px;
+    /* shorthand row than column*/
+
+    /*
+    justify-content : in horizontal
+    align-content : vertical
+    justify-items horizontal but take the content width not tha column width
+    align-item vertical but take the content width not tha row height
+    justify horizonatl 
+    align vertical
+    */
+
+
+
+
+
+
+}
+
+.grid_item {
+    /* |-|-| 
+                lin1 item lin2 item lin3 */
+    grid-column-start: 1;
+    /*for items start at line 1 */
+    grid-column-end: span 2;
+    /*here I can told him 3 mean line 3 or span 2 mean from start you will take two columns*/
+    /*shordhand */
+    grid-column: 1/span 2;
+    grid-row: 2/span 1;
+    /*grid-row-start/ grid-row-end*/
+    grid-area: 2/1/span 1/span 2;
+    /*row-start/column start/row-end/column end*/
+    /* align-self: center;/*vertical*/
+    /*justify-self:  center;/*horizontal*/
+
+}
+
+/********************************images*********************************************/
+/*Note 
+in image i cant give it width and height it will made it bad i should give it one of them then it will get the other value
+the best for image to be good quality and space if you mant width be 800px get image be 1.5 times of this width
+max-width and min-width
+
+*/
+/*
+back_ground image can take many image between them , 
+repeat can take for x and y and also many image between them ,
+
+
+
+*/
+/*
+when repeat dosent effect 
+background-origin : borderbox means backgound image start from the start of border
+                   :paddingbox after border 
+                   : content : after padding
+backgroundclip : mean cut image  
+                   */
+.back_ground {
+    height: 500px;
+    width: 500px;
+    font-size: 60px;
+    color: black;
+    border: 4px solid black;
+    background-color: rgb(223, 75, 124);
+    background-image: url("https://th.bing.com/th/id/OIP.rYTiCI6pLY-nkVZNf-1UngHaEK?w=333&h=187&c=7&r=0&o=5&dpr=1.1&pid=1.7");
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-clip: content-box;
+    background-position: center;
+    /* background-position:top left; */
+    /*  background-position :100px 200px means from left anf from right
+     background-position :100px means from left only
+     background-position :bottom 10px means move from bottom 10px
+          */
+    background-size: cover;
+    overflow: scroll;
+    /*when content of this div is bigger than it */
+    background-attachment: fixed;
+    /* local make image get along with the data in the container
+    fixed based on body */
+    /***************************************************
+    shorthand:
+    background: color url position/size repeat origin clip attachmet;
+    if there are more than one background dont put color in the short hand 
+    */
+}
+
+/*Linear graident*/
+/*
+    linear-gradient( to top,red,blue,green)
+    1-first paramater can be : to top,bottom,right,left top right and so one 
+                              : 45deg if i want an angle 
+    2- second paramater can be  : red 
+                                : red 100px means from 0px to 100px red
+                                :  transparent                           
+                                : linear-gradient(transparent 50%,blue 50%); half 
+    */
+.linear {
+    height: 200px;
+    width: 200px;
+    background-image: linear-gradient(to bottom right, transparent 50%, rgb(160, 52, 2) 50%),
+        linear-gradient(to top right, transparent 50%, rgb(172, 73, 27) 50%),
+        linear-gradient(to top left, transparent 50%, rgb(109, 54, 28) 50%);
+    border: 10px dashed black;
+    background-clip: padding-box;
+}
+
+/*Radial-gradient
+    background-image: radial-gradient(circle 100px at 100px 100px ,gray, black);
+                      circle radius at center x and y 
+
+*/
+
+.radial {
+    height: 200px;
+    width: 200px;
+    background-image: radial-gradient(circle 100px at 100px 100px, gray, black);
+}
+
+/***filter**
+blur(value px);
+brightness( value%)
+contrast(value%) the siparation between lines 
+grayscale(value %)
+hue-rotate(value deg) change color 
+saturate(value %)
+opacity(value %)
+*/
+/*******************************Fonts***************************************************/
+/*if I downloaded a font 
+@ font-face{
+src:url( direction)
+font-family: write a name you want to this font
+font-weight: to distiguished between the type of this font bold light and so on
+
+**/
+
+
+.Fonts {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-stretch: expanded;
+    /* if font is 400 weight and not italic and when I style it I made it 900 and italic the browser who is responsible for 
+    make this not font so If i dont want the browser make this 
+    1- font-synthesis :none */
+    font-synthesis: none;
+    /* 2- line-height : for block elements only not span 1.5 mean 1.5 times height of  the font */
+
+    line-height: 2;
+    /*shorthand
+    font: style weight varient size/line height font-family
+    
+    */
+    /* 3- font-display: swap block N/A follback swap infinite 
+               : block block short follback swap infinite 
+               : follback block veryshort follback swap short
+               : option block veryshort follback swap none
+               block if he cannot apply this font ,swap after follback if he can apply this font
+*/
+}
+
+.sub_font {
+    vertical-align: super;
+    /*for vertical*/
+
+}
+
+.text {
+    /*Text decoration for lines */
+    text-decoration-line: underline;
+    text-decoration-color: blueviolet;
+    text-decoration-style: wavy;
+    text-decoration: wavy red underline;
+    /*Text indent space before the first word  */
+    text-indent: 40px;
+    /*text-shadow*/
+    text-shadow: 1px 1px 3px red;
+    /*word space*/
+    word-spacing: 2px;
+    /*letter space*/
+    letter-spacing: 3px;
+    /*word break :break-all break big word but keep all not break the word*/
+    word-break: break-all;
+    /*column*/
+    column-count: 2;
+    /*make text 2 column*/
+    column-gap: 70px;
+    column-rule: red 6px solid;
+}
+
+.cont {}
+
+.text1,
+.text2 {
+    display: inline-block;
+    width: 80px;
+    border: 2px solid black;
+    text-decoration: 2px solid black underline;
+    padding: 10px;
+    margin: 20px;
+    /*Text align*/
+    text-align: center;
+    vertical-align: middle;
+    /*vertical align for div but text withn div not*/
+    /*to center text */
+    line-height: 124px;
+    /*height of div the text is withn it*/
+    /*text justify to work must make text align justify*/
+}
+
+/*******************************Animation and Transition*******************************************************/
+.Transition {
+    width: 100px;
+    height: 100px;
+    background-color: darkblue;
+    /*When transition inside div not hover this transition will occure when hover and after unhover 
+    but when but it inside hove will occure when hove only*/
+    transition-property: background-color, width;
+    /*property */
+    transition-duration: 2s;
+    transition-delay: .5;
+    /*wait .5 second then start changing*/
+    /*linear distribute time equaly
+    ease-out start fastly then end slowly
+    ease-in start slowly then end fastly
+    */
+    transition-timing-function: ease-out;
+    /* transition: duration property timefunction delay , for another ptoperty; */
+}
+
+.Transition:hover {
+    width: 150px;
+    height: 150px;
+    background-color: darkmagenta;
+
+}
+
+/*Animation*/
+.Animation {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    /*Animation name*/
+    animation-name: animation;
+    animation-duration: 10s;
+    /*the whole duration*/
+    animation-delay: 0s;
+    animation-iteration-count: 2;
+    /*this animation will be repeated 2 times*/
+
+    animation-timing-function: steps(2);
+    /*from one state to another it traslate throught 2 steps*/
+    animation-direction: normal;
+    /*start from the end to the begining*/
+    animation-fill-mode: forwards;
+    /*means ends at the last stage and stay at this stage*/
+}
+
+.Animation:hover {
+    animation-play-state: paused;
+    /*when hover I can pause the animation*/
+}
+
+@keyframes animation {
+    0%
+
+    /*from duration*/
+        {
+        background-color: yellow;
+    }
+
+    50% {
+        background-color: blue;
+    }
+
+    100% {
+        background-color: black;
+    }
+}
+
+/*Transform*/
+.Translate {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transform: translateX(10px);
+    transform: translateY(10px);
+    transform: translate(10px);
+    /*MEAN in x*/
+    transform: translate(10px, 10px);
+    /*MEAN in x,y*/
+    /*when translate it can hide the elements beside it dose not move it*/
+
+}
+
+.Scale {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    transform: scale(2);
+    /*mean 2 times in x ,y*/
+}
+
+/*Skew*/
+.Skew {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    transform: Skew(45deg);
+    /*mean in x can be -45deg in the another direction*/
+}
+
+/***************************Rotate*****************************************/
+.Rotate {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    margin-top: 30px;
+    animation: rotate 2s none .5s infinite;
+    /*to rotate in x or y use rotate and prespective(value in px) whenthis value is lerger it is better 
+    prespective can be in transform or in container it self
+    */
+}
+
+@keyframes rotate {
+    25% {
+        transform: rotateZ(45deg);
+    }
+
+    50% {
+        transform: rotateZ(90deg);
+
+    }
+
+    75% {
+        transform: rotateZ(145deg);
+
+    }
+
+    100% {
+        transform: rotateZ(180deg);
+
+    }
+}
+
+.Rotate:hover {
+    transform: rotateZ(45deg);
+}
+
+/*
+Shorthands
+1-border:width style color
+2-box-shadow: x y blur color
+3-flex-flow : direction wrap
+4-flex: grow stretch basis
+5-gap: x y
+6-grid-area: row start/column start/row end/column end
+7-border-image: url slice/width/outgoing/repeat
+8-background-image:url position/size repeat origin clip attachment
+9-font: style weight size/lineheught family
+10-     transition: duration property timefunction delay , for another ptoperty; 
+
+
+*/
+
+/*
+variables
+:root {
+    --main-bg-color: #282c34;
+    --main-text-color: #ffffff;
+    --main-padding: 20px;
+    --secondary-bg-color: #61dafb;
+    --hover-bg-color: #21a1f1;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    padding: var(--main-padding);
+}
+
+.button {
+    background-color: var(--secondary-bg-color);
+    color: var(--main-bg-color);
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--hover-bg-color);
+}
+
+
+*/

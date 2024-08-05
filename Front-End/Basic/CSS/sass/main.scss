@@ -1,0 +1,306 @@
+//import layout 
+@use './layout/layout';
+//import page 
+@use './pages/homepage';
+//import color page
+@use './variables/colors_variable' as *;
+//import mixin 
+@use "./helpers/mixin" as *;
+//import function 
+@use './helpers/functions' as *;
+//global variable
+$maxwidth: "max-width:575";
+
+body {
+    background-color: $main;
+}
+
+@media ($maxwidth) {
+    body {
+        background-color: $second;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////
+//nesting and parent desen ding
+.parent {
+    font-size: 30px;
+
+    .child {
+        font-size: 25px;
+
+        .grand_child {
+            font-size: 20px;
+        }
+    }
+}
+
+//direct child
+.parnet> {
+    .child {
+        font-size: 25px;
+
+    }
+}
+
+//direct and undirect and next element
+.parent {
+    >.child {
+        font-size: 25px;
+
+    }
+
+    .test {
+        font-size: 20px;
+
+    }
+
+    +.paragraph {
+        font-size: 15px;
+
+    }
+}
+
+.parent {
+    > {
+        .direct-child-one {
+            font-size: 25px;
+        }
+
+        .direct-child-two {
+            font-size: 25px;
+        }
+    }
+}
+
+//This means that any HTML element that has both the
+// box and red classes will have its text color set to red.
+.box {
+
+    //& mean the parent element which is in this situation (box)
+    &.red {
+        color: red;
+    }
+
+    &:hover {
+        //when hover this element box element
+        font-size: 30px;
+    }
+
+    &:hover .title {
+        // when hover this element change the color of class title which is iside the box element
+        color: green;
+
+    }
+
+    :not(&) //all elements execpt box 
+
+        {
+        font: blue;
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+/// 
+/// 
+.box-2 {
+    font: {
+        style: italic;
+        size: 30px;
+        weight: bold;
+
+    }
+
+    margin: auto {
+        top: 30px;
+        bottom: 20px;
+    }
+
+    ;
+}
+
+//grouping
+// instead of write the same style again 
+.main-class {
+    background-color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+}
+
+.adv {
+    @extend .main-class;
+    font-size: 30px;
+}
+
+.nav {
+    font-size: 25;
+    ;
+    @extend .main-class;
+
+}
+
+//placeholder like grouping but main-class is actually isnot a class in html i did it for style only to but styling inside it
+%main-class-not-in-html {
+    background-color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+}
+
+.adv-2 {
+    @extend %main-class-not-in-html;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+/// flow
+$theme: 'light';
+
+.page {
+    @if &theme=='light' {
+        background-color: white;
+        color: black;
+    }
+
+    @else {
+        background-color: black;
+        color: white;
+    }
+
+}
+
+$rounded: true;
+
+.page {
+    .box {
+        border-radius: if($rounded, 6px, numm); //if(condition,value if condition is true,else);
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+/// interpolation
+$company: 'elzero';
+$position: "left";
+.ad-#{$company}
+
+/*here will not show in css*/
+    {
+    font-size: 40px;
+    /*here will show*/
+
+    #{$position}: 0;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+/// comments
+// This type of comment will not show in css file
+
+/*This
+ comment will show in css file but not in compressed mode
+ */
+
+/* ! This comment will show in css file and in compressed mode */
+/////////////////////////////////////////////////////////////////////////////////////////
+///mixin and include is a function
+.mixin {
+    @include circle(100px);
+    @include center;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+/// For and loops
+/// //throught = 1 2 3  --- 10
+/// to 1 2 3-----9
+@for $i from 1 through 10 {
+    .class-#{$i} {
+        font-size: #{$i+10px};
+    }
+}
+
+/////////////////////////////////////////////////////
+/// Each
+$themes: red, green, orange;
+
+@each $theme in $themes {
+    .#{$theme}-theme {
+        .product {
+            background-color: white;
+            border: 2px solid $theme;
+        }
+    }
+}
+
+////map
+$socials: (
+    'facebook':2px,
+    'youtube':3px,
+    "github":4px
+);
+
+@each $name, $size in $socials {
+    .#{$name} {
+        padding: $size/2;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+/// while
+
+$start: 1;
+
+@while $start<=10 {
+    .width-#{$start} {
+        width: $start*100px;
+        height: ($start*100px)/2;
+    }
+
+    $start: $start+1;
+}
+
+/////////////////////////////////////////////////////////////////////////
+/// function
+.produnct {
+    width: 100px;
+    height: half(100px);
+    top: calculate(100px, 200px, 300px);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+/// Mixin and content
+/// element can change content of mixin 
+.element {
+    @include keyf("content1") {
+        color: red;
+    }
+
+    ;
+
+    @include keyf("content2") {
+        background-color: blue;
+    }
+
+    ;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+/// 
+/// media
+.media //this mean media inside in @media
+
+    {
+    @include content(mobile) {
+        font-size: 20px;
+    }
+
+    @include content(small) {
+        font-size: 30px;
+    }
+
+    @include content(medium) {
+        font-size: 40px;
+    }
+
+    @include content(large) {
+        font-size: 50px;
+    }
+
+
+}
