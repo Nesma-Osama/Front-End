@@ -397,39 +397,146 @@ diceButton.onclick = function () {
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 //Generate password
-function generatePassword(number,isContainLowerCase,isContainUpperCase,isContaiNumbers,isContainSymbols)
-{
-    const lowerLetters="abcdefghijklmnopqrstuvwxyz"
-    const upperLetters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    const numbers="0123456789"
-    const symbols="@#$&()_?"
-    let contains=''
-    let passWord=""
-    contains+=isContainLowerCase?lowerLetters:""
-    contains+=isContainUpperCase?upperLetters:""
-    contains+=isContaiNumbers?numbers:""
-    contains+=isContainSymbols?symbols:""
-    if(contains==="")
+function generatePassword(number, isContainLowerCase, isContainUpperCase, isContaiNumbers, isContainSymbols) {
+    const lowerLetters = "abcdefghijklmnopqrstuvwxyz"
+    const upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const numbers = "0123456789"
+    const symbols = "@#$&()_?"
+    let contains = ''
+    let passWord = ""
+    contains += isContainLowerCase ? lowerLetters : ""
+    contains += isContainUpperCase ? upperLetters : ""
+    contains += isContaiNumbers ? numbers : ""
+    contains += isContainSymbols ? symbols : ""
+    if (contains === "")
         return "(must choose one type at least)"
-    if(number<=0)
-        return"(must password be at least one length)"
-    for(let i=0;i<number;i++)
-    {
-        let index=Math.floor(Math.random()*(contains.length))
-        passWord+=contains[index]
+    if (number <= 0)
+        return "(must password be at least one length)"
+    for (let i = 0; i < number; i++) {
+        let index = Math.floor(Math.random() * (contains.length))
+        passWord += contains[index]
     }
     return passWord
 
 }
-console.log(generatePassword(12,true,false,true,true))
+console.log(generatePassword(12, true, false, true, true))
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //callback function is a function pass to another function as an argument
 hello(goodBye)
-function hello(fun)
-{ 
+function hello(fun) {
     fun()
     console.log("hello")
 }
-function goodBye(){
+function goodBye() {
     console.log("Good Bye")
 }
+///////////////////////////////////////////////////////////////////////////////////////
+//Destructuring an object
+const data = [
+    {
+        id: 1,
+        title: "The loard of the rings",
+        geners: ["1", "2", "4", "4"],
+        pages:300
+    }, {
+        id: 2,
+        title: "The bueaty and the best ",
+        geners: ["1", "2", "4", "4"],
+        pages:600
+
+
+
+    },
+    {
+        id: 3,
+        title: "Herry Poter",
+        geners: ["1", "2", "4", "4"],
+        pages:700
+
+
+    }
+
+]
+function getDatas() {
+    return data
+}
+function getData(id) {
+    return data.find((d) => d.id === id)
+}
+const dt_1 = getData(2)
+const { id, title, geners } = dt_1//must be the same name
+console.log(id, title)
+//Destructuring an array
+const [first, second, ...others] = geners// this is the rest operator ...
+console.log(first, second, others)
+// spread operator as split array to elements
+const newGeners = [...others, "7"]
+console.log(newGeners)
+// spread object 
+const newDate = { ...dt_1, movieDate: "2001-3-21" }
+console.log(newDate)
+/////////////////////////////////////////////////////////////////////////////////////
+//Arrow function
+const add=(a,b)=>{
+    return a+b
+}
+// const add=(a,b)=>a+b
+console.log(add(2,3))
+console.log(first)
+///////////////////////////////////////////////////////////////////////////////////////
+// and and or operator
+//false values are 0 false null undefiend
+//if first value in && is true it return the second value
+console.log(true&& "is it true!")
+//or if first operand false return second operand but if it true return the first argumnet
+console.log(false|| "is it false!")
+//nullish coalescing
+console.log(null??"it is null or undifiend")
+//optinal chaning ? if the values is null.counts for example means when try to access a value from null it will return undifiend and will not try to access
+console.log(dt_1.lib?.counts??"undifiend")
+//////////////////////////////////////////////////////////////////////////////////////
+//map method in the array create new array based on the old array 
+const data_1=getDatas()
+console.log(data_1)
+const newData1=data_1.map(el=>{
+    el.id+=2
+    el.title+=` ${el.id}`
+    return el
+})
+console.log(newData1)
+//////////////////////////////////////////////////////////////////////////////////////
+//filter method
+const longBooks=data_1.filter(el=>el.pages>500)
+console.log(longBooks)
+///////////////////////////////////////////////////////////////////////////////////////
+//reduce take an argument and array and an initial value for this argument
+const totalNumberPages=data_1.reduce((sum,el)=>sum+=el.pages,0)
+console.log(totalNumberPages)
+//////////////////////////////////////////////////////////////////////////////////////
+//sort
+const arr_sort=[2,1,4,3,8,5,6]
+arr_sort.sort((a,b)=>a-b)// when negative means they are sorted asending
+console.log(arr_sort)//change the original array
+//for not change the original
+const arr_sort_2=[2,1,4,3,8,5,6]
+
+const new_sorted=arr_sort_2.slice().sort()
+console.log(new_sorted,arr_sort_2)
+//for objects
+const new_sort_data=data_1.slice().sort((a,b)=>b.pages-a.pages)
+console.log(new_sort_data)
+/////////////////////////////////////////////////////////////////////////////////////////
+//asynchoronous
+//promise moves to the next line
+// js dont wait this fetch it do the rest of code untill the data is fetched 
+//.then mean when data arrives do this
+fetch('https://jsonplaceholder.typicode.com/todos').then(res=>res.json()).then(data=>console.log(data))
+console.log("un wait")
+//async/await    move to the next line after function call
+async function getTodos() {
+    const res=await fetch('https://jsonplaceholder.typicode.com/todos')
+    const data=await res.json()
+    console.log(data)
+}
+getTodos()
+console.log("un wait async")
