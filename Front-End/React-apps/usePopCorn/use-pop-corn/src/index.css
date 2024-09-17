@@ -1,0 +1,11 @@
+.star {
+  width: 2em;
+  margin: 1em;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}

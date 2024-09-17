@@ -1,0 +1,53 @@
+html{
+}
+body {
+  margin: auto;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.flashCards {
+  margin: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 columns */
+
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 200px; /* Set a height for the div */
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 1.3rem
+}
+
+.question {
+  background-color: rgb(176, 175, 175);
+  border: 1px solid black;
+
+
+
+}
+
+.answer {
+  background-color: rgba(255, 0, 0, 0.717);
+  border: 1px solid gray;
+
+
+}

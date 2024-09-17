@@ -1,0 +1,22 @@
+body,html{
+  height: 100%;
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+}
+input{
+  color: red;
+  padding: .3rem;
+}
+button{
+  background-color: darkblue;
+  color: white;
+  padding: .5rem;
+  border-radius: .5rem;
+  margin: .5rem;
+}
