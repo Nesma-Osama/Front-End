@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-image{
+  background-image: url("../asserts/26889fb85cb76049f09b4ca91ef42a4d.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
